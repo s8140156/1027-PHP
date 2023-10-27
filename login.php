@@ -29,7 +29,7 @@
 		if(isset($_GET['login']) && $_GET['login']==1){
 			echo "歡迎你";
 		}else{
-			// else底下先包登入頁,因為程式碼長,所以php先切插入html然後再開php碼把}寫完
+			// else底下先包登入頁,因為程式碼長,所以php先切插入html(登入頁面)然後再開php碼把}寫完
 
 ?>
 		<form action="check.php" method="post">
