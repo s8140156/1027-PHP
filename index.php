@@ -60,6 +60,7 @@
 			<input type="reset" value="重置">
 		</div>
 	</form>
+	<!-- 要重新寫過 -->
 </body>
 
 </html>
