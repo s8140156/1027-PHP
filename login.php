@@ -28,8 +28,9 @@
 		if(isset($_SESSION['error'])){
 			echo "<span style='color:red'>".$_SESSION['error']."</span>";
 		}
-		if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
-			echo $_SESSION['error'] . "歡迎你";
+		if(isset($_SESSION['login']) && !empty($_SESSION['login'])){
+			echo $_SESSION['login'] . "歡迎你";
+			echo "<a href='logout.php'>登出</a>";
 		}else{
 			// else底下先包登入頁,因為程式碼長,所以php先切插入html(登入頁面)然後再開php碼把}寫完
 
@@ -45,7 +46,7 @@
 				<input type="password" name="pw" id="pw">
 			</div>
 			<div class='btn'>
-				<input type="submit" value="送出">
+				<input type="submit" value="登入">
 				<input type="reset" value="重置">
 			</div>
 		</form>
