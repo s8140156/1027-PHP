@@ -48,7 +48,6 @@ $firstCell = date("Y-m-d", strtotime("-$thisFirstDate days", strtotime($thisFirs
 ?>
 <div style='width:264px;display:flex;margin:auto;justify-content:space-between'>
 	<a href="?prev=9">上一個月</a>
-	<!-- <?= = <?php echo -->
 	<a href="?next=11">下一個月</a>
 </div>
 <table style='width:264px;display:block;margin:auto'>

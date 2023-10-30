@@ -7,11 +7,14 @@
 </head>
 <body>
 <?php
-if($_GET['login']==1){
+session_start();
+// 告訴伺服器我要使用session了, 寫在最外面
+
+if(isset($_SESSION['login']) && !empty($_SESSION['login'])){
 	echo "<h2>登入成功</h2>";
-	echo "<a href='login.php?login=1'>回登入頁</a>";
+	echo "<a href='login.php'>回登入頁</a>";
 	}else{
-		header("locaion:login.php");
+		// header("locaion:login.php");
 	}
 
 	?>

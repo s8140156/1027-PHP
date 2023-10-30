@@ -23,11 +23,13 @@
 <body>
 	<div class='login-block'>
 		<?php
-		if(isset($_GET['m'])){
-			echo "<span style='color:red'>".$_GET['m']."</span>";
+		session_start();
+		
+		if(isset($_SESSION['error'])){
+			echo "<span style='color:red'>".$_SESSION['error']."</span>";
 		}
-		if(isset($_GET['login']) && $_GET['login']==1){
-			echo "歡迎你";
+		if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
+			echo $_SESSION['error'] . "歡迎你";
 		}else{
 			// else底下先包登入頁,因為程式碼長,所以php先切插入html(登入頁面)然後再開php碼把}寫完
 
