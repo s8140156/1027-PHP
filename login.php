@@ -23,13 +23,18 @@
 <body>
 	<div class='login-block'>
 		<?php
-		session_start();
 		
-		if(isset($_SESSION['error'])){
-			echo "<span style='color:red'>".$_SESSION['error']."</span>";
+		date_default_timezone_set("Asia/Taipei");
+		// session_start();
+
+		if(isset($_COOKIE['error'])){
+			echo "<span style='color:red'>".$_COOKIE['error']."</span>";
+			unset($_COOKIE['error']);
+			// 傳送錯誤訊息to client後刪除這個訊息
 		}
-		if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
-			echo $_SESSION['error'] . "歡迎你";
+		if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])){
+			echo $_COOKIE['login']. "歡迎你";
+			echo "<a href='logout.php'>登出</a>";
 		}else{
 			// else底下先包登入頁,因為程式碼長,所以php先切插入html(登入頁面)然後再開php碼把}寫完
 
