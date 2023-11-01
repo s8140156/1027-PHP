@@ -23,8 +23,11 @@
 		echo "<a href='login.php'>回登入頁</a>";
 		echo "<a href='logout.php'>登出</a>";
 	} else {
+		// 如果以上session組合沒被偵測到, 則會將告知使用者錯誤訊息(會顯示在login畫面)
 		$_SESSION['error'] = "沒有登入相關驗證，非法登入";
+		// 用於如果沒有登入成功卻硬闖會員中心者的訊息
 		header("location:login.php");
+		// 會被導回登入頁
 	}
 
 	?>
