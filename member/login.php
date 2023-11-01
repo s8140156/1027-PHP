@@ -57,14 +57,19 @@
 		<?php
 
 		if (isset($_SESSION['error'])) {
+			// 如果 'error' 變數存在，則顯示錯誤訊息(在check已設定錯誤顯示)
 			echo "<span style='color:red'>" . $_SESSION['error'] . "</span>";
 			unset($_SESSION['error']);
+			 // 清除 'error' 變數，以避免重複顯示
 		}
 
 		if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
+			// 如果這個session_login變數是存在的, 並且不是空值
 			echo $_SESSION['login'] . " 歡迎你";
 			echo "<a href='logout.php'>登出</a>";
+			 // 顯示使用者歡迎訊息和登出連結
 		} else {
+			// 如果 'login' 變數不存在或為空，顯示登入表單以下html表單
 
 		?>
 			<form action="check.php" method="post">
