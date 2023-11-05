@@ -1,25 +1,28 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萬年曆</title>
+    <style>
 	* {
 		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	}
 
-	table, tr,th,td {
-		border: 3px double;
+	table{
+		border: 3px double #999;
 		/* double其實是三條線 但中間線是白色 看起來像雙線 */
 		border-collapse: collapse;
 	}
 
-
-
 	td {
-		border: 3px double;
-		text-align: right;
+		border: 1px solid #999;
+		text-align: center;
 		padding: 5px 10px;
 	}
-</style>
-
-
-
+    </style>
+</head>
+<body>
 <?php
 
 if(isset($_GET['month']) && isset($_GET['year'])){
@@ -39,15 +42,15 @@ echo date("西元 {$year} 年 {$month} 月");
 echo "</h3>";
 
 $thisFirstday = date("{$year}-{$month}-1");
-// echo $thisFirstday;
+// 
 $thisFirstDate = date('w', strtotime($thisFirstday));
-// echo $thisFirstDate;
+// 
 $thisMonthDays = date("t");
-// echo $thisMonthDays; 
+// 
 $thisLastDay = date("{$year}-{$month}-$thisMonthDays");
-// echo $thisLastDay;
+// 
 $weeks = ceil(($thisMonthDays + $thisFirstDate) / 7);
-// echo $weeks;
+// 
 $firstCell = date("Y-m-d", strtotime("-$thisFirstDate days", strtotime($thisFirstday)));
 ?>
 	<!-- < ? = 等於 < ? php echo的縮寫 加入$next; 然後在正常結尾 ? > -->
@@ -64,28 +67,29 @@ if(($month+1)>12){
 	$next=$month+1;
 	$nextYear=$year;
 }
+
 if(($month-1)<1){
 	$prev=12;
 	$prevYear=$year-1;
 }else{
 	$prev=$month-1;
 }
-
 ?>
-	<a href="?year=<?=$prevYear;?>&?month<?=$prev;?>">上一個月</a>
-	<a href="?year=<?=$nextYear;?>&?month<?=$next;?>">下一個月</a>
+
+<a href="?year=<?=$prevYear;?>&month=<?=$prev;?>">上一個月</a>
+<a href="?year=<?=$nextYear;?>&month=<?=$next;?>">下一個月</a>
 </div>
 <table style='width:264px;display:block;margin:auto'>
 	<tr>
-		<th>sun</th>
-		<th>mon</th>
-		<th>tue</th>
-		<th>wed</th>
-		<th>thu</th>
-		<th>fri</th>
-		<th>sat</th>
+		<td>sun</td>
+		<td>mon</td>
+		<td>tue</td>
+		<td>wed</td>
+		<td>thu</td>
+		<td>fri</td>
+		<td>sat</td>
 	</tr>
-	<?php
+<?php
 	for ($i = 0; $i < $weeks; $i++) {
 		echo "<tr>";
 		for ($j = 0; $j < 7; $j++) {
@@ -107,7 +111,9 @@ if(($month-1)<1){
 		echo "</tr>";
 	}
 	echo "</table>";
+?>
 
 
-
-	?>
+    
+</body>
+</html>
