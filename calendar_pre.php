@@ -37,6 +37,31 @@ if(isset($_GET['month']) && isset($_GET['year'])){
 // 雖然這邊寫法一樣僅變數不同, 也不需合併簡寫 還是獨立分開寫 因為大致上點選月曆時不會同時看上個月, 下個月
 // 透過網頁傳值,可以讓程式自己去跑月份出來
 
+switch ($month) {
+    case "jan":
+        $Bg = "bg01.gif";
+        break;
+    case "feb":
+        $Bg = "bg02.gif";
+        break;
+    case "mar":
+        $Bg = "bg03.gif";
+        break;
+    case "apr":
+        $Bg = "bg04.gif";
+        break;
+    case "may":
+        $Bg = "bg05.gif";
+        break;
+    case "jun":
+        $Bg = "bg06.gif";
+        break;
+    case "jun":
+        $Bg = "bg06.gif";
+        break;
+}
+
+
 echo "<h3 style='text-align:center'>";
 echo date("西元 {$year} 年 {$month} 月");
 echo "</h3>";
